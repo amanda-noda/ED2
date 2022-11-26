@@ -1,0 +1,55 @@
+Estrutura de dados 2 
+
+Remoção de elementos de uma lista encadeada 
+
+celula*elem=le;
+	while (element->prox=!NULL){
+		celula+lixo=elem-> prox;
+		if(lixo ->dado==x){
+		elem->prox=lixo->prox;
+		free(lixo);
+		}
+		elem=elem->prox;
+	}
+	
+void remove(celula*p,int x){
+	if (p->prox!=NULL){
+		celula*lixo=p->prox;
+	if(lixo->dado==x){
+		p->prox=lixo->prox;
+		free(lixo);
+	}
+	remove (p->prox,x);
+	}
+}
+
+void mereSort(int*v,int e, int d){
+	if(e>=d)return;
+	int meio = (e+d)/2;
+	mergeSort(v,e,meio);
+	mergeSort(v,meio+1,d);
+	intercala(v,e,meio,d);	
+}
+
+Custo de intercalar n elementos o(n)
+
+A árvore de recursão ppossui lg n níveis, em que n é a quantidade de elementos do 
+vetor.
+O custo de intercalar todos os elementos num nível é O(n).
+Portanto, o custo tottal é O(n(gn)).
+
+quando percorrermos o vetor mais de uma vez nosso O terá coplexidade maior.
+no caso, se ele passar somente uma vez no vetor é uma complexidade O(n).
+
+void intercala(int *v, int e, int meio, int d){
+	int *v2=malloc((d-e+1)*sinzeof(int));
+	int i=e, j=meio+1, k=0;
+		while(i<=meio&&j<d){
+			if(v[i]<=V[j])v2[k++]=v[i++];
+			else v2[k++]=v[j++];
+		}
+		while(i<=meio)v2[k++]=v[i++];
+		while(j<=d)v2[k++]=v[j++];
+		for(k=0;i=ei<=d;k++;i++)v[i]=v2[k];
+}
+
